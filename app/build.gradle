@@ -32,11 +32,13 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
     packagingOptions {
-        exclude 'log4j2.xml'
-        exclude 'META-INF/DEPENDENCIES'
+        resources {
+            excludes += ['log4j2.xml', 'META-INF/DEPENDENCIES']
+        }
     }
+
+    namespace 'xyz.gianlu.librespot.android'
 }
 
 dependencies {

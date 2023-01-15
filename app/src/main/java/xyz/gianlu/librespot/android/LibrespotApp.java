@@ -15,18 +15,5 @@ public final class LibrespotApp extends Application {
     static {
         Decoders.registerDecoder(SuperAudioFormat.VORBIS, AndroidNativeDecoder.class);
         Decoders.registerDecoder(SuperAudioFormat.MP3, AndroidNativeDecoder.class);
-
-        if (isArm()) {
-            Decoders.registerDecoder(SuperAudioFormat.VORBIS, 0, TremoloVorbisDecoder.class);
-            Log.i(TAG, "Using ARM optimized Vorbis decoder");
-        }
-    }
-
-    private static boolean isArm() {
-        for (String abi : Build.SUPPORTED_ABIS)
-            if (abi.contains("arm"))
-                return true;
-
-        return false;
     }
 }
